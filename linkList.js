@@ -25,18 +25,20 @@ function find(item) {
   return currNode;
 }
 
-function insert(value,item) {
+function insert(value,item='') {
   let newNode = new Node(value);
   let current;
   if(item){
     current = this.find(item);
     console.log(item,'value:',current.value)
     newNode.next = current.next;
+    current.next = newNode
   }else {
     current = this.head;
     while (current.next !== null) {
       current = current.next;
     }
+    current.next = newNode
   }
 }
 
@@ -62,11 +64,12 @@ function print_r(){
 
 
 const cities = new LinkList();
-cities.append('Conway');
-cities.append('Russellville');
-cities.append('Alma');
-cities.append('testNode');
+cities.insert('Conway');
+cities.insert('Russellville');
+cities.insert('Alma');
+cities.insert('testNode','Russellville');
 cities.print_r();
 console.log('-------------');
-cities.remove('Alma');
+// cities.remove('Alma');
 cities.find('Russellville');
+
