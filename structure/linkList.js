@@ -62,7 +62,7 @@ function print_r(){
   }
 }
 
-
+//Test code
 const cities = new LinkList();
 cities.insert('Conway');
 cities.insert('Russellville');
