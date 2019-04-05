@@ -33,6 +33,9 @@ function BinarySearchTree(){
     }
   }
 
+  this.remove = function (key) {
+    root = removeNode(root,key)
+  }
   this.min = function () {
     return minNode(root)
   }
@@ -127,7 +130,7 @@ function BinarySearchTree(){
       node.left = removeNode(node.left,key)
     } else if (key > node.key) {
       node.right = removeNode(node.right,key)
-    } else {
+    } else {// when key === node.key
       if (node.left === null && node.right === null) {
         node = null
         return node
@@ -175,4 +178,4 @@ tree.insert(25)
 // tree.postOrderTraverse(function(key){
 //   console.log(key)
 // })
-console.log(tree.search(24));
+console.log(tree.search(18));
