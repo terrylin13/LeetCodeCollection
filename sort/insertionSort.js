@@ -1,26 +1,15 @@
 'use strict';
-
-function ArrayList()
-{
-  let array = [];
-  this.insert = (item) => {
-    array.push(item);
-  }
-  this.toString = () => {
-    return array.join();
-  }
-  this.insertionSort = () => {
-    let len = array.length,j,temp;
-    for (let i = 0; i < len; i++)
-    {
-      j = i;
-      temp = array[i];
-      while (j > 0 && array[j - 1] > temp)
-      {
-        array[j] = array[j-1];        //{6}
+const BaseArray = require('./ArrayList.class')
+class ArrayList extends BaseArray { 
+  insertionSort() {
+    let arrLength = this.array.length;
+    for (let i = 0; i < arrLength; i++) {
+      let temp = this.array[i], j = i;
+      while (j > 0 && this.array[j - 1] > temp) {
+        this.array[j] = this.array[j - 1]
         j--;
       }
-      array[j] = temp;
+      this.array[j] = temp;
     }
   }
 }

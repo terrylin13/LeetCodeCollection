@@ -1,31 +1,17 @@
 'use strict';
-
-function ArrayList()
-{
-  let array = [];
-  this.insert = (item) => {
-    array.push(item);
+const BaseArray = require('./ArrayList.class')
+class ArrayList extends BaseArray {
+  constructor() {
+    super();
   }
-  this.toString = () => {
-    return array.join();
-  }
-  this.selectSort = () => {
-    let len = array.length,indexMin;
-    for (let i = 0; i < len-1; i++)
-    {
+  selectSort() {
+    let arrLength = this.array.length, indexMin;
+    for (let i = 0; i < arrLength - 1; i++){
       indexMin = i;
-      for (let j = i + 1; j < len; j++)
-      {
-        if (array[indexMin] > array[j])
-        {
-          indexMin = j;
-        }
+      for (let j = i + 1; j < arrLength; j++){
+        if (this.array[indexMin] > this.array[j]) indexMin = j;
       }
-      if (i !== indexMin) {
-        let temp = array[i];
-        array[i] = array[indexMin];
-        array[indexMin] = temp;
-      }
+      if (i != indexMin) this.swap(i, indexMin);
     }
   }
 }

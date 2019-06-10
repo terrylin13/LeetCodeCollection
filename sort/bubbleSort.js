@@ -1,31 +1,21 @@
 'use strict';
+const BaseArray = require('./ArrayList.class')
+class ArrayList extends BaseArray{
 
-function ArrayList()
-{
-  let array = [];
-  this.insert = (item) => {
-    array.push(item);
+  constructor() {
+    super()
   }
-  this.toString = () => {
-    return array.join();
-  }
-  this.bubbleSort = () => {
-    let len = array.length;
-    for (let i = 0; i < len; i++)
-    {
-      for (let j = i + 1; j < len; j++)
-      {
-        if (array[i] > array[j])
-        {
-          let temp = array[j];
-          array[j] = array[i];
-          array[i] = temp;
-        }
+
+  bubbleSort() {
+    let arrLength = this.array.length;
+    for (let i = 0; i < arrLength; i++){
+      for (let j = i + 1; j < arrLength; j++){
+        if (this.array[i] > this.array[j]) this.swap(i,j)
       }
     }
   }
-}
 
+}
 //TestCode
 let arr = new ArrayList();
 arr.insert(12);
