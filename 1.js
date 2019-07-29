@@ -37,7 +37,7 @@ var twoSum = function(nums, target) {
     j = target - nums[i]
     if(hash[nums[i]] !== undefined){
       console.log(i,hash[nums[i]])
-      return [i,hash[nums[i]]]
+      return [hash[nums[i]],i]
     }else{
       hash[j] = i;
     }
