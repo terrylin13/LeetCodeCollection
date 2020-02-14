@@ -12,7 +12,7 @@ class Node
 
 class LinkList 
 {
-    private $_link;
+    protected $_link;
 
     public function __construct()
     {
