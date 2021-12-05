@@ -1,13 +1,6 @@
-package main
+package _63
 
-import "fmt"
-
-func main() {
-
-	m := [][]int{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}}
-	fmt.Println(uniquePathsWithObstacles(m))
-}
-func uniquePathsWithObstacles(obstacleGrid [][]int) int {
+func UniquePathsWithObstacles(obstacleGrid [][]int) int {
 	lengthX, lengthY := len(obstacleGrid), len(obstacleGrid[0])
 	dp := make([]int, lengthY)
 	if obstacleGrid[0][0] == 0 {
