@@ -1,8 +1,6 @@
 package _15
 
-import (
-	"sort"
-)
+import "sort"
 
 func threeSum(nums []int) [][]int {
 	res := [][]int{}
@@ -19,15 +17,17 @@ func threeSum(nums []int) [][]int {
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
-		target2 := target - nums[i]
+
+		want := target - nums[i]
 		lo := i + 1
 		hi := length - 1
+
 		//2sum
 		for lo < hi {
 			sum := nums[lo] + nums[hi]
 			left := nums[lo]
 			right := nums[hi]
-			if sum == target2 {
+			if sum == want {
 				res = append(res, []int{nums[i], nums[lo], nums[hi]})
 				for lo < hi && left == nums[lo] {
 					lo++
@@ -35,7 +35,7 @@ func threeSum(nums []int) [][]int {
 				for lo < hi && right == nums[hi] {
 					hi--
 				}
-			} else if sum < target2 {
+			} else if sum < want {
 				for lo < hi && nums[lo] == left {
 					lo++
 				}
