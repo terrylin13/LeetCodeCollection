@@ -19,12 +19,18 @@ func twoSum2(nums []int, target int) []int {
 	hi := len(nums) - 1
 	for lo < hi {
 		sum := nums[lo] + nums[hi]
+		left := nums[lo]
+		right := nums[hi]
 		if sum == target {
 			return []int{lo, hi}
 		} else if sum < target {
-			lo++
-		} else if sum > target {
-			hi--
+			for lo < hi && nums[lo] == left {
+				lo++
+			}
+		} else {
+			for lo < hi && nums[hi] == right {
+				hi--
+			}
 		}
 	}
 	return []int{}
