@@ -37,26 +37,34 @@ func mergeKLists(lists []*ListNode) *ListNode {
 		}
 	}
 
-	var head *ListNode
-	var tail *ListNode
-	var next *ListNode
+	// var head *ListNode
+	// var tail *ListNode
+	// for mergeHeap.Len() > 0 {
+	// 	if tail != nil {
+	// 		next := heap.Pop(mergeHeap).(*ListNode)
+	// 		if next.Next != nil {
+	// 			heap.Push(mergeHeap, next.Next)
+	// 		}
+	// 		tail.Next = next
+	// 		tail = next
+	// 	} else {
+	// 		head = heap.Pop(mergeHeap).(*ListNode)
+	// 		tail = head
+	// 		if head.Next != nil {
+	// 			heap.Push(mergeHeap, head.Next)
+	// 		}
+	// 	}
+	// }
 
+	dummy := new(ListNode)
+	cur := dummy
 	for mergeHeap.Len() > 0 {
-		if tail != nil {
-			next = heap.Pop(mergeHeap).(*ListNode)
-			if next.Next != nil {
-				heap.Push(mergeHeap, next.Next)
-			}
-			tail.Next = next
-			tail = next
-		} else {
-			head = heap.Pop(mergeHeap).(*ListNode)
-			tail = head
-			if head.Next != nil {
-				heap.Push(mergeHeap, head.Next)
-			}
+		next := heap.Pop(mergeHeap).(*ListNode)
+		if next.Next != nil {
+			heap.Push(mergeHeap, next.Next)
 		}
+		cur.Next = next
+		cur = next
 	}
-
-	return head
+	return dummy.Next
 }
