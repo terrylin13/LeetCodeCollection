@@ -3,23 +3,17 @@ package tree
 import "testing"
 
 var root = &TreeNode{
-	Val: "A",
+	Val: 3,
 	Left: &TreeNode{
-		Val: "B",
-		Left: &TreeNode{
-			Val: "D",
-		},
-		Right: &TreeNode{
-			Val: "E",
-		},
+		Val: 9,
 	},
 	Right: &TreeNode{
-		Val: "C",
+		Val: 20,
 		Left: &TreeNode{
-			Val: "F",
+			Val: 15,
 		},
 		Right: &TreeNode{
-			Val: "G",
+			Val: 7,
 		},
 	},
 }

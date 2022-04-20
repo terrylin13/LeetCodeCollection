@@ -2,12 +2,6 @@ package tree
 
 import "fmt"
 
-type TreeNode struct {
-	Left  *TreeNode
-	Right *TreeNode
-	Val   string
-}
-
 // 前序遍历是指，对于树中的任意节点来说，先打印这个节点，然后再打印它的左子树，最后打印它的右子树。
 func preTraversing(t *TreeNode) {
 	if t == nil {
