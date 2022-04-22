@@ -6,20 +6,35 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func preorderTraversal(root *TreeNode) []int {
-	return traverse(root)
-}
+// func preorderTraversal(root *TreeNode) []int {
+// 	arr := []int{}
 
-func traverse(node *TreeNode) []int {
-	if node == nil {
+// 	var traverse func(node *TreeNode) []int
+// 	traverse = func(node *TreeNode) []int {
+// 		if node == nil {
+// 			return nil
+// 		}
+
+// 		arr = append(arr, node.Val)
+
+// 		traverse(node.Left)
+// 		traverse(node.Right)
+
+// 		return arr
+// 	}
+// 	traverse(root)
+// 	return arr
+// }
+
+func preorderTraversal(root *TreeNode) []int {
+	if root == nil {
 		return nil
 	}
 
-	arr := []int{node.Val}
-
-	arr = append(arr, traverse(node.Left)...)
-
-	arr = append(arr, traverse(node.Right)...)
+	arr := []int{}
+	arr = append(arr, root.Val)
+	arr = append(arr, preorderTraversal(root.Left)...)
+	arr = append(arr, preorderTraversal(root.Right)...)
 
 	return arr
 }
