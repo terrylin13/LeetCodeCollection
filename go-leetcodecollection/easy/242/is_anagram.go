@@ -10,7 +10,6 @@ func isAnagram(s, t string) bool {
 	return string(s1) == string(s2)
 }
 
-// mapping
 func isAnagram2(s, t string) bool {
 	var c1, c2 [26]int
 	for _, ch := range s {
@@ -22,6 +21,7 @@ func isAnagram2(s, t string) bool {
 	return c1 == c2
 }
 
+// mapping
 func isAnagram3(s, t string) bool {
 	if len(s) != len(t) {
 		return false
