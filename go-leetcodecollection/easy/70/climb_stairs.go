@@ -2,11 +2,8 @@ package _70
 
 // 暴力递归
 func climbStairs(n int) int {
-	if n == 1 {
-		return 1
-	}
-	if n == 2 {
-		return 2
+	if n == 0 || n == 1 || n == 2 {
+		return n
 	}
 	return climbStairs(n-1) + climbStairs(n-2)
 }
@@ -16,11 +13,8 @@ func climbStairs2(n int) int {
 	mem := make([]int, n+1)
 	var recursion func(n int) int
 	recursion = func(n int) int {
-		if n == 1 {
-			return 1
-		}
-		if n == 2 {
-			return 2
+		if n == 0 || n == 1 || n == 2 {
+			return n
 		}
 		if mem[n] != 0 {
 			return mem[n]
