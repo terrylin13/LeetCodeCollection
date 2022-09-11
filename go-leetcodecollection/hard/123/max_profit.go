@@ -12,6 +12,27 @@ func maxProfit(prices []int) int {
 	return sell2
 }
 
+//dp table
+func maxProfit2(prices []int) int {
+	maxK := 2
+	n := len(prices)
+	dp := make([][][2]int, n)
+	for i := range dp {
+		dp[i] = make([][2]int, maxK+1)
+	}
+	for i := 0; i < n; i++ {
+		for k := maxK; k >= 1; k-- {
+			if i-1 == -1 {
+				dp[i][k][0] = 0
+				dp[i][k][1] = -prices[i]
+				continue
+			}
+			dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1]+prices[i])
+			dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0]-prices[i])
+		}
+	}
+	return dp[n-1][maxK][0]
+}
 func max(a, b int) int {
 	if a > b {
 		return a
