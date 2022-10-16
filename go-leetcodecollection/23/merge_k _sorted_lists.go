@@ -68,3 +68,44 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	}
 	return dummy.Next
 }
+
+// dp depend on merge2List func
+func mergeKLists2(lists []*ListNode) *ListNode {
+	dummy := &ListNode{}
+	cur := dummy
+	merge2Lists := func(a, b *ListNode) *ListNode {
+		if a == nil && b == nil {
+			return nil
+		} else if a == nil && b != nil {
+			return b
+		} else if b == nil && a != nil {
+			return a
+		}
+
+		dummy := &ListNode{}
+		cur := dummy
+		for a != nil && b != nil {
+			if a.Val > b.Val {
+				cur.Next = b
+				b = b.Next
+			} else {
+				cur.Next = a
+				a = a.Next
+			}
+			cur = cur.Next
+		}
+
+		if a != nil {
+			cur.Next = a
+		} else if b != nil {
+			cur.Next = b
+		}
+		return dummy.Next
+	}
+
+	for i := 0; i < len(lists); i++ {
+		cur.Next = merge2Lists(cur.Next, lists[i])
+	}
+
+	return dummy.Next
+}
