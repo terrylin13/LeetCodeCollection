@@ -16,3 +16,10 @@ func TestBFAll(t *testing.T) {
 	target := "test"
 	fmt.Println(BFAll(s, target))
 }
+
+func TestReplace(t *testing.T) {
+	s := "testing"
+	target := "test"
+	want := "yes"
+	t.Log(Replace(s, target, want))
+}

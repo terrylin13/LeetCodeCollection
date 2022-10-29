@@ -39,3 +39,20 @@ func BFAll(s, target string) []int {
 	}
 	return res
 }
+
+func Replace(s, target, want string) string {
+	for i := range s {
+		for j := range target {
+			if i+j == len(s) {
+				break
+			}
+			if s[i+j] != target[j] {
+				break
+			}
+			if j == len(target)-1 {
+				return s[:i] + want + s[j+1:]
+			}
+		}
+	}
+	return ""
+}
