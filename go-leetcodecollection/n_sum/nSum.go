@@ -1,4 +1,4 @@
-package _15
+package n_sum
 
 // before call this func, u need to motherfucker sort the nums!!!
 func nSum(nums []int, n, start, target int) [][]int {
